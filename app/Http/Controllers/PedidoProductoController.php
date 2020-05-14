@@ -19,7 +19,7 @@ use Illuminate\Support\Collection;
 class PedidoProductoController extends Controller
 {
     public function __construct(){
-        // $this->middleware('auth');
+        $this->middleware('auth');
    }
     public function index(Request $request)
     {
@@ -41,7 +41,7 @@ class PedidoProductoController extends Controller
     {
      $proveedores=DB::table('proveedores')->where('activo','=','1')->get();
      $producto = DB::table('producto as pro')
-            ->select(DB::raw('CONCAT(pro.nombre, " - ",pro.codigo) AS producto'),'pro.idProducto')
+            ->select(DB::raw('CONCAT(pro.nombre, " - ",pro.presentacion) AS producto'),'pro.idProducto')
             ->where('pro.estatus','=','Activo')
             ->get();
         return view("compras.pedidos.create",["proveedores"=>$proveedores,"producto"=>$producto]);

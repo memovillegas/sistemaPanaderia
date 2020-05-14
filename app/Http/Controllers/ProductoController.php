@@ -16,7 +16,7 @@ use Illuminate\Auth\Middleware\Authenticate;
 class ProductoController extends Controller
 {
     public function __construct(){
-        //  $this->middleware('auth');
+        $this->middleware('auth');
     }
   
     //Creamos un objeto '$request' para poderlo validar con nuestro archivo Request

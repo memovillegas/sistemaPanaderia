@@ -17,7 +17,7 @@ use Illuminate\Support\Collection;
 class VentaController extends Controller
 {
     public function __construct(){
-        // $this->middleware('auth');
+        $this->middleware('auth');
    }
     public function index(Request $request)
     {
@@ -37,7 +37,7 @@ class VentaController extends Controller
     {
      $productos = DB::table('producto as pro')
             ->join('detallepedidoproducto as dpp','pro.idProducto','=','dpp.idProducto')
-            ->select(DB::raw('CONCAT(pro.nombre, " - ",pro.codigo) AS producto'),'pro.idProducto','pro.stock',DB::raw('avg(dpp.precioVenta)as precioPromedio'))
+            ->select(DB::raw('CONCAT(pro.nombre, " - ",pro.presentacion) AS producto'),'pro.idProducto','pro.stock',DB::raw('avg(dpp.precioVenta)as precioPromedio'))
             ->where('pro.estatus','=','Activo')
             ->where('pro.stock','>','0')
             ->groupBy('producto','pro.idProducto','pro.stock')

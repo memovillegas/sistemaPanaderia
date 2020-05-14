@@ -47,7 +47,7 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <small class="bg-red">Online</small>
+                  <small class="bg-red">Sesión</small>
                   <span class="hidden-xs"></span>
                 </a>
                 <ul class="dropdown-menu">
@@ -55,8 +55,8 @@
                   <li class="user-header">
                     
                     <p>
-                      Memo Tech
-                      <!-- <small>:)</small> -->
+                      
+                      <!-- <small>:</small> -->
                     </p>
                   </li>
                   
@@ -64,7 +64,7 @@
                   <li class="user-footer">
                     
                     <div class="pull-right">
-                      <a href="{{url('logout')}}" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                      <a href="{{route('logout')}}" class="btn btn-default btn-flat">Cerrar Sesión</a>
                     </div>
                   </li>
                 </ul>

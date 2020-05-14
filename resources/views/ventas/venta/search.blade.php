@@ -3,7 +3,7 @@
     <div class="input-group">
         <input type="text" class="form-control" name="searchText" placeholder="Buscar ventas por fecha:" value="{{$searchText}}">
         <span class="input-group-btn">
-            <button type="submit" class="btn btn-primary">Buscar Pedido</button>
+            <button type="submit" class="btn btn-primary">Buscar Venta</button>
         </span>
     </div>
 </div>

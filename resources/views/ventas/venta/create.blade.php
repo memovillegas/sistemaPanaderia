@@ -114,7 +114,7 @@
         
         idProducto = datosProducto[0];
         producto = $("#pidProducto option:selected").text();
-        cantidad = $("#pcantidad").val();
+        cantidad = parseInt($("#pcantidad").val());
         precioVenta = $("#pprecioVenta").val();
         stock = $("#pstock").val();
         

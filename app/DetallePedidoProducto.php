@@ -13,7 +13,7 @@ class DetallePedidoProducto extends Model
     public $timestamps = false;
 
     protected $fillable =[
-       'idingreso',
+       'idPedidoProducto',
        'idProducto',
        'cantidad',
        'precioCompra',

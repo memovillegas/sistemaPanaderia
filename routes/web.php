@@ -14,8 +14,16 @@ Route::resource('almacen/categoria','CategoriaController');
 Route::resource('almacen/producto','ProductoController');
 Route::resource('compras/proveedor','ProveedorController');
 Route::resource('compras/pedidos','PedidoProductoController');
-Route::resource('ventas/venta','VentaController');
+Route::resource('acceso/empleado','EmpleadoController');
+Route::resource('ventas/venta','VentaController'); 
+Route::resource('seguridad/usuario','UsuarioController'); 
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/{slug?}', 'HomeController@index')->name('home');
