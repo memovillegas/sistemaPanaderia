@@ -26,9 +26,9 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="/almacen/articulo" class="logo">
+        <a href="{{url('home')}}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>AD</b>V</span>
+          <span class="logo-mini"><b>P</b>SB</span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Panadería San Juan Bosco</b></span>
         </a>
@@ -192,7 +192,7 @@
       <!--Fin-Contenido-->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
+          
         </div>
         <!-- j<strong>Copyright &copy; 2015-2020 <a href="www.incanatoit.com">IncanatoIT</a>.</strong> All rights reserved. -->
       </footer>

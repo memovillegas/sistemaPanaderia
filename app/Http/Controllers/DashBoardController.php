@@ -2,29 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Http\Request;
 use DB;
-
-class HomeController extends Controller
+class DashBoardController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
          /*Compras por mes*/
@@ -38,6 +26,6 @@ class HomeController extends Controller
 
         $totales=DB::select('SELECT (select ifnull(sum(dpp.cantidad*dpp.precioCompra),0) from pedidoproducto pp inner join detallepedidoproducto dpp on pp.idPedidoProducto=dpp.idPedidoProducto where DATE(pp.fechaHora)=curdate() and pp.estatus="Activo") as totalPedidos, (select ifnull(sum(v.totalVenta),0) from venta v where DATE(v.fechaHora)=curdate() and v.activo=1) as totalventa');
 
-            return view('home',["comprasmes"=>$comprasmes,"ventasmes"=>$ventasmes,"ventasdia"=>$ventasdia,"productosvendidos"=>$productosvendidos,"totales"=>$totales]);
+            return view('dashboard',["comprasmes"=>$comprasmes,"ventasmes"=>$ventasmes,"ventasdia"=>$ventasdia,"productosvendidos"=>$productosvendidos,"totales"=>$totales]);
     }
 }

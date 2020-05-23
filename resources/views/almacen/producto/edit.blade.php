@@ -46,12 +46,7 @@
                 </div>
             </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-            <div class="form-group">
-                    <label for="codigo">Código</label>
-                    <input type="text" name="codigo" required value="{{$producto->codigo}}" class="form-control">
-                </div>
-            </div>
+        
 
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
@@ -60,14 +55,7 @@
             </div>
         </div>
 
-
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-            <div class="form-group">
-                    <label for="stock">Descripción</label>
-                    <input type="text" name="descripcion"  value="{{$producto->descripcion}}" class="form-control" placeholder="Descripción del producto:">
-            </div>
-        </div>
-
+    
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                     <label for="imagen">Imagen</label>
@@ -78,6 +66,18 @@
             </div>
         </div>
 
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+            <div class="form-group">
+                    <label for="codigo">Código</label>
+                    <input type="text" name="codigo" id="codigobar"required value="{{$producto->codigo}}" class="form-control">
+                    <br>
+                <button class="btn btn-success" type="button" onclick="generarBarcode()">Generar</button>
+                <button class="btn btn-info" onclick="imprimir()"type="button">imprimir</button>
+                <div id="print">
+                    <svg id="barcode"></svg>
+                </div>
+                </div>
+            </div>
         <div class="col-lg-6 col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <br>
@@ -90,5 +90,31 @@
     </div>
 
            {!!Form::close()!!}
-     
+
+@push ('scripts')
+<script src="{{asset('js/JsBarcode.all.min.js')}}"></script>
+<script src="{{asset('js/jquery.PrintArea.js')}}"></script>
+<script>
+function generarBarcode()
+{   
+    codigo=$("#codigobar").val();
+    JsBarcode("#barcode", codigo, {
+    format: "pharmacode",
+    font: "OCRB",
+    fontSize: 18,
+    textMargin: 0
+    });
+}
+$('#liAlmacen').addClass("treeview active");
+$('#liArticulos').addClass("active");
+
+
+//Código para imprimir el svg
+function imprimir()
+{
+    $("#print").printArea();
+}
+generarBarcode();
+</script>
+@endpush
 @stop

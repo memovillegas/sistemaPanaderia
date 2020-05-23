@@ -17,6 +17,7 @@ Route::resource('compras/pedidos','PedidoProductoController');
 Route::resource('acceso/empleado','EmpleadoController');
 Route::resource('ventas/venta','VentaController'); 
 Route::resource('seguridad/usuario','UsuarioController'); 
+Route::resource('/dashboard','DashBoardController'); 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', function () {
@@ -25,5 +26,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/{slug?}', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+Route::get('/{slug?}', 'HomeController@index');

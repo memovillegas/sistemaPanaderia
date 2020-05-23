@@ -116,7 +116,7 @@
         producto = $("#pidProducto option:selected").text();
         cantidad = parseInt($("#pcantidad").val());
         precioVenta = $("#pprecioVenta").val();
-        stock = $("#pstock").val();
+        stock = parseInt($("#pstock").val());
         
         if(idProducto!="" && cantidad!="" && cantidad>0 && precioVenta!=""){
             if(stock >=cantidad){
